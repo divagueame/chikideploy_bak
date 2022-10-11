@@ -1,5 +1,4 @@
 # Mina deploy.rb file generator
-echo -e '\n'
 echo "Creating Mina deploy.rb file in: ./$APP_NAME/config/deploy.rb"
 MINA_DEPLOY_FILE="./$APP_NAME/config/deploy.rb"
 

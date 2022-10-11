@@ -20,25 +20,8 @@ if [ -z "$name" ]
 fi
 echo $APP_NAME
 
-rails new $APP_NAME -d postgresql
-cd $APP_NAME/ && echo $RUBY_VERSION > .ruby-version
-
-echo "
-group :production do
-  gem 'unicorn'
-end
-
-group :development, :test do
-  gem 'mina', '1.2.4'
-end" >> Gemfile
-
-bundle lock --add-platform x86_64-linux
-bundle install --without=production
-
-# Create scaffold and set root path
-RAILS_ENV=development ./bin/rails generate scaffold post title:string
-./bin/rails db:create db:migrate
-sed -i 's/# root "articles#index"/root "posts#index"/g' ./config/routes.rb
+# Rails Setup
+source './lib/setup_rails.sh'
 
 # Create Repository and push to Github
 git add .
@@ -111,8 +94,10 @@ remote_key=$(ssh $APP_NAME@$DOMAIN_IP 'cat ~/.ssh/id_rsa.pub')
 echo 'IN LOCAL MACHINE:'
 echo "$remote_key"
 
-# Add Deploy Key to Repository through Github API
-gh api --method POST -H "Accept: application/vnd.github+json" /repos/$GIBHUB_USERNAME/$APP_NAME/keys  -f title='Deploy Key created with DeployWithMinaScript' -f key="$remote_key" -F read_only=true
-
+# # Add Deploy Key to Repository through Github API
+# gh api --method POST -H "Accept: application/vnd.github+json" /repos/$GIBHUB_USERNAME/$APP_NAME/keys  -f title='Deploy Key created with DeployWithMinaScript' -f key="$remote_key" -F read_only=true
+echo "AQUI ESTMOS"
+echo "$PWD"
+cd ..
 # Script to create the deploy.rb file used by Mina to deploy the application by pulling the code from the GitHub
-source ./lib/deploy_base.sh
+source './lib/deploy_base.sh'
