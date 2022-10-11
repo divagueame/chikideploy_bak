@@ -1,3 +1,4 @@
+echo -e "${magenta}=====>./lib/remote_deploy_keys.sh<====${clear}!"
 # Remote
 # Logging in as app user && Create ssh key for GH API
 ssh $APP_NAME@$DOMAIN_IP << EOF

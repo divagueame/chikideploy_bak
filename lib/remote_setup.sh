@@ -1,3 +1,4 @@
+echo -e "${magenta}=====>./lib/remote_setup.sh<====${clear}!"
 ssh root@$DOMAIN_IP << EOF
 echo "STEP 8"
 # rvm install $RUBY_VERSION

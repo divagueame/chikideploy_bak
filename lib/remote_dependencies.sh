@@ -1,33 +1,45 @@
+echo -e "${magenta}=====>./lib/remote_dependencies.sh<====${clear}!"
 # Install dependencies and programms in remote machine
 # Reboot after install RVM
 ssh-keyscan $DOMAIN_IP >> $HOME/.ssh/known_hosts
 ssh root@$DOMAIN_IP << EOF
-echo "Logged in as:"
-whoami 
+
 yes | apt update 
 yes | apt upgrade
-echo "STEP 1"
+echo -e "${yellow}STEP 1.${clear}"
+
 yes | apt install ufw
 yes | ufw allow 22 
 yes | ufw logging off
 yes | ufw enable
 yes | ufw status
-echo "STEP 2"
+echo -e "${yellow}STEP 2.${clear}"
+
 yes | apt install curl git nginx postgresql libpq-dev
-echo "STEP 3"
+echo -e "${yellow}STEP 3.${clear}"
 
 yes | sudo apt-get install software-properties-common
-echo "STEP 4"
+echo -e "${yellow}STEP 4.${clear}"
+
 yes | sudo apt-add-repository -y ppa:rael-gc/rvm
-echo "STEP 5"
+echo -e "${yellow}STEP 5.${clear}"
+
 yes | sudo apt-get update
-echo "STEP 6"
+# echo -e "${yellow}STEP 6.${clear}"
+
 yes | sudo apt-get install rvm
-echo "STEP 7"
+echo -e "${yellow}STEP 7.${clear}"
+
 sudo usermod -a -G rvm root
 echo 'source "/etc/profile.d/rvm.sh"' >> ~/.bashrc
+echo -e "${yellow}SHUTTING DOWN REMOTE MACHINE.${clear}"
 shutdown -r now
 EOF
 
-echo "Waiting for remote server to reboot!"
-sleep 30
+sleep 1
+echo -e "${yellow}WAITING.${clear}"
+sleep 1
+echo -e "${yellow}WAITING..${clear}"
+sleep 1
+echo -e "${yellow}WAITING...${clear}"
+sleep 25
