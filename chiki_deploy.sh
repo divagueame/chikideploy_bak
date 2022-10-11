@@ -115,4 +115,4 @@ echo "$remote_key"
 gh api --method POST -H "Accept: application/vnd.github+json" /repos/$GIBHUB_USERNAME/$APP_NAME/keys  -f title='Deploy Key created with DeployWithMinaScript' -f key="$remote_key" -F read_only=true
 
 # Script to create the deploy.rb file used by Mina to deploy the application by pulling the code from the GitHub
-source deploy_base.sh
+source ./lib/deploy_base.sh
