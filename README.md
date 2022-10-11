@@ -1,5 +1,11 @@
 # ChikiDeploy
 
+# # Chiki Deploy
+
+# # Rails new app generator + Deployment with Mina Server
+
+# # https://github.com/divagueame/chikideploy
+
 ChikiDeploy is a bash script to create and an deploy a Rails 7 Application with just one command.
 
 This scripts uses Mina, GitHub CLI and SSH to connect to a remote server and deploy the application pulling the code from the repository.

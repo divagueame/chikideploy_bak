@@ -18,3 +18,5 @@ bundle install --without=production
 RAILS_ENV=development ./bin/rails generate scaffold post title:string
 ./bin/rails db:create db:migrate
 sed -i 's/# root "articles#index"/root "posts#index"/g' ./config/routes.rb
+
+cd ..
