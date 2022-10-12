@@ -1,3 +1,4 @@
+echo -e " "
 echo -e "${magenta}=====>./lib/local_setup_rails.sh<====${clear}"
 # Creates and sets up a Rails Application, adds scaffolding and prepares for basic deployment
 rails new $APP_NAME -d postgresql

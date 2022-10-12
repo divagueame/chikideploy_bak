@@ -1,3 +1,4 @@
+echo -e " "
 echo -e "${magenta}=====>./lib/setup_github.sh<====${clear}"
 
 cd $APP_FOLDER

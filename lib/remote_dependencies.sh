@@ -1,4 +1,5 @@
-echo -e "${magenta}=====>./lib/remote_dependencies.sh<====${clear}!"
+echo -e " "
+echo -e "   ${magenta}=====>./lib/remote_dependencies.sh<====${clear}"
 # Install dependencies and programms in remote machine
 # Reboot after install RVM
 ssh-keyscan $DOMAIN_IP >> $HOME/.ssh/known_hosts
@@ -25,7 +26,7 @@ yes | sudo apt-add-repository -y ppa:rael-gc/rvm
 echo -e "${yellow}STEP 5.${clear}"
 
 yes | sudo apt-get update
-# echo -e "${yellow}STEP 6.${clear}"
+echo -e "${yellow}STEP 6.${clear}"
 
 yes | sudo apt-get install rvm
 echo -e "${yellow}STEP 7.${clear}"

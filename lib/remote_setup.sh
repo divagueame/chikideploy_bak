@@ -1,12 +1,16 @@
+echo -e " "
 echo -e "${magenta}=====>./lib/remote_setup.sh<====${clear}!"
 ssh root@$DOMAIN_IP << EOF
-echo "STEP 8"
-# rvm install $RUBY_VERSION
-# gem update --system
-# gem install bundler
+echo -e "${yellow}CONNECTION TO REMOTE RESTABLISHED.${clear}"
+
+rvm install $RUBY_VERSION
+gem update --system
+gem install bundler
+echo -e "${yellow}STEP 8. Installing Ruby and Bundler${clear}"
 
 sudo -u postgres createuser $APP_NAME
 sudo -u postgres createdb $APP_NAME --owner=$APP_NAME
+echo -e "${yellow}STEP 9. Postgres DB Setup.${clear}"
 
 adduser $APP_NAME --disabled-password --gecos ""
 mkdir /home/$APP_NAME/.ssh
