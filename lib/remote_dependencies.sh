@@ -4,6 +4,7 @@ echo -e "   ${magenta}=====>./lib/remote_dependencies.sh<====${clear}"
 # Reboot after install RVM
 ssh-keyscan $DOMAIN_IP >> $HOME/.ssh/known_hosts
 ssh root@$DOMAIN_IP << EOF
+echo -e "${yellow}CONNECTION TO REMOTE RESTABLISHED AS ROOT.${clear}"
 
 yes | apt update 
 yes | apt upgrade
@@ -16,7 +17,7 @@ yes | ufw enable
 yes | ufw status
 echo -e "${yellow}STEP 2.${clear}"
 
-yes | apt install curl git nginx postgresql libpq-dev
+yes | apt install curl git postgresql libpq-dev
 echo -e "${yellow}STEP 3.${clear}"
 
 yes | sudo apt-get install software-properties-common
@@ -32,6 +33,8 @@ yes | sudo apt-get install rvm
 echo -e "${yellow}STEP 7.${clear}"
 
 sudo usermod -a -G rvm root
+
+
 echo 'source "/etc/profile.d/rvm.sh"' >> ~/.bashrc
 echo -e "${yellow}SHUTTING DOWN REMOTE MACHINE.${clear}"
 shutdown -r now

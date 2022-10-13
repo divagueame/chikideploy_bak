@@ -10,7 +10,7 @@ done
 
 APP_NAME=$name
 GIBHUB_USERNAME=divagueame
-DOMAIN_IP=159.89.227.227
+DOMAIN_IP=147.182.164.233
 RUBY_VERSION=3.1.1
 
 if [ -z "$name" ]

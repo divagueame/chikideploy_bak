@@ -21,4 +21,6 @@ bundle install --without=production
 RAILS_ENV=development ./bin/rails generate scaffold post title:string
 ./bin/rails db:create db:migrate
 sed -i 's/# root "articles#index"/root "posts#index"/g' ./config/routes.rb
+sed -i 's/# config.require_master_key = true/config.require_master_key = true/g' ./config/environments/production.rb
+echo -e "${red} LOCAL RAILS APPLICATION CREATED${clear}"
 cd ..

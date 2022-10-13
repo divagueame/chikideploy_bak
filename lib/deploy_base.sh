@@ -22,7 +22,7 @@ echo -e "set :branch, 'main'" >> $MINA_DEPLOY_FILE
 echo -e "set :rvm_use_path, '/etc/profile.d/rvm.sh'" >> $MINA_DEPLOY_FILE
 
 echo -e "" >> $MINA_DEPLOY_FILE
-echo -e "set :shared_files, fetch(:shared_files, []).push('config/database.yml')" >> $MINA_DEPLOY_FILE
+echo -e "set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/master.key')" >> $MINA_DEPLOY_FILE
 echo -e "set :shared_dirs, fetch(:shared_dirs, []).push('public/packs')" >> $MINA_DEPLOY_FILE
 
 echo -e "" >> $MINA_DEPLOY_FILE
@@ -46,6 +46,7 @@ echo -e "       pool: 5" >> $MINA_DEPLOY_FILE
 echo -e "       timeout: 5000]" >> $MINA_DEPLOY_FILE
 echo -e "   command %[test -e #{path_database_yml} || echo \"#{database_yml}\" > #{path_database_yml}]" >> $MINA_DEPLOY_FILE
 echo -e "" >> $MINA_DEPLOY_FILE
+
 echo -e "   command %[chmod -R o-rwx config]" >> $MINA_DEPLOY_FILE
 echo -e "   end" >> $MINA_DEPLOY_FILE
 echo -e "end" >> $MINA_DEPLOY_FILE
