@@ -6,10 +6,6 @@ cd $APP_FOLDER
 echo $RUBY_VERSION > ./.ruby-version
 
 echo "
-group :production do
-  gem 'unicorn'
-end
-
 group :development, :test do
   gem 'mina', '1.2.4'
 end" >> Gemfile

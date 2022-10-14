@@ -9,9 +9,10 @@ do
 done
 
 APP_NAME=$name
-GIBHUB_USERNAME=divagueame
-DOMAIN_IP=147.182.164.233
+GITHUB_USERNAME=divagueame
+DOMAIN_IP=165.227.85.1
 RUBY_VERSION=3.1.1
+GIT_URL="git@github.com:$GITHUB_USERNAME/$APP_NAME.git"
 
 if [ -z "$name" ]
   then

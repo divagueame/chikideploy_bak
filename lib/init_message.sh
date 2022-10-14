@@ -4,8 +4,3 @@ echo -e ""
 echo -e "${green}*Creating a new application: $APP_NAME *${clear}"
 sleep 1
 echo -e "${green}.${clear}"
-sleep 1
-echo -e "${green}..${clear}"
-sleep 1
-echo -e "${green}...${clear}"
-sleep 1
